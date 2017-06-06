@@ -1,0 +1,37 @@
+# Spongemock
+This library provides resources for working with text to
+transform it into [Spongebob mocking meme text](http://knowyourmeme.com/memes/mocking-spongebob).
+
+## Algorithm
+At first, I thought that the letters started with lowercase
+and just alternated.
+
+> aT fIrSt, I tHoUgHt...
+
+However, after reviewing quite a few uses of the meme, I
+found that there is an element of randomness to it.
+
+This library will inspect the text and transform letters
+to uppercase or lowercase:
+
+1. If a non-ASCII or non-letter is encountered, it is ignored
+2. The first letter encountered has a 50% chance of being
+ upper or lowercase
+3. If the next letter encountered is a different case, it has
+ a 10% chance of being transformed (90% chance of staying a
+ different case). This means that `an` or `AN` arrangements
+ should appear about a tenth of the time, and `An` or `aN`
+ arrangements will appear more frequently.
+ * If the next letter encountered is the same case, it thus
+ has a 90% chance of being transformed.
+4. If a letter is the same case as _two_ previous letters,
+ it has a 99% chance of being transformed. Arrangements of
+ three of the same case as in `ana` or `ANA` are rare, but
+ I have seen them occur.
+
+## Usage
+
+    spongeMock("This is a test string.");
+    // 
+
+Simple as that.

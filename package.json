@@ -1,0 +1,12 @@
+{
+  "name": "spogemock",
+  "version": "0.0.0",
+  "description": "sPonGeBoB MoCKiNg mEmE TeXt TRansFoRmEr",
+  "main": "index.js",
+  "author": "Andrew Crites <ajcrites@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash.isstring": "^4.0.1",
+    "lodash.random": "^3.2.0"
+  }
+}
