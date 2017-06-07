@@ -1,6 +1,6 @@
 {
   "name": "spongemock",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "sPonGeBoB MoCKiNg mEmE TeXt TRansFoRmEr",
   "main": "src/index.js",
   "bin": "src/bin.js",
