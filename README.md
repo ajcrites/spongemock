@@ -2,7 +2,7 @@
 This library provides resources for working with text to
 transform it into [Spongebob mocking meme text](http://knowyourmeme.com/memes/mocking-spongebob).
 
-![sPoNgEBoB](/sPoNgEBoB.jpg)
+![sPoNgEBoB](https://raw.githubusercontent.com/ajcrites/spongemock/master/sPoNgEBoB.jpg)
 
 ## Algorithm
 At first, I thought that the letters started with lowercase
