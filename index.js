@@ -47,21 +47,21 @@ function decideCase(curr, prev, prev2) {
     // Previous character does not match case, so there is a 10% chance to
     // swap and match case. Prev2 does not impact this.
     if (getCase(prev) !== currCase) {
-        if (odds >= 90) {
+        if (odds >= 85) {
             return curr[swapCaseFn]();
         }
     }
-    // Else, there is a 90% chance to swap if prev2 does not match case
+    // Else, there is a 85% chance to swap if prev2 does not match case
     else if (!prev2 || getCase(prev2) !== currCase) {
-        if (odds < 90) {
+        if (odds < 85) {
             return curr[swapCaseFn]();
         }
         else {
             return curr;
         }
     }
-    // Prev2 *also* matches case, so there is a 99% chance to swap
-    else if (odds < 99) {
+    // Prev2 *also* matches case, so there is a 98% chance to swap
+    else if (odds < 98) {
         return curr[swapCaseFn]();
     }
 
