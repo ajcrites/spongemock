@@ -39,3 +39,13 @@ algorithm:
     // 'tHiS iS a TeSt StRiNg.'
 
 Simple as that.
+
+## CLI
+
+You can `yarn global add spongemock` to add a cli tool that
+allows you to spongemockify strings and files. You can give
+it a list of files to mock or else it will read from stdin.
+
+    spongemock README.md
+    git log | spongemock
+    spongemock -e "works on strings with -e argument"

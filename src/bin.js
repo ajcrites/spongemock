@@ -10,17 +10,27 @@ program
     .parse(process.argv);
 
 if (!program.args.length) {
-    console.error("You must provide a file or list of files (or strings with --string) to parse");
-    process.exit(1);
+    const stdin = process.openStdin();
+    let input = "";
+
+    stdin.on("data", function (chunk) {
+        input += chunk;
+    });
+
+    stdin.on("end", function () {
+        process.stdout.write(spongeMock(input));
+        process.stdout.write("\n");
+    });
 }
+else {
+    program.args.forEach(function (str) {
+        if (program.string) {
+            process.stdout.write(spongeMock(str));
+        }
+        else {
+            process.stdout.write(spongeMock(fs.readFileSync(str, "utf8")));
+        }
+    });
 
-program.args.forEach(function (str) {
-    if (program.string) {
-        process.stdout.write(spongeMock(str));
-    }
-    else {
-        process.stdout.write(spongeMock(fs.readFileSync(str, "utf8")));
-    }
-});
-
-process.stdout.write("\n");
+    process.stdout.write("\n");
+}
