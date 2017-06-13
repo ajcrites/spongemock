@@ -44,7 +44,7 @@ function decideCase(curr, prev, prev2) {
         }
     }
 
-    // Previous character does not match case, so there is a 10% chance to
+    // Previous character does not match case, so there is a 15% chance to
     // swap and match case. Prev2 does not impact this.
     if (getCase(prev) !== currCase) {
         if (odds >= 85) {
