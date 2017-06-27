@@ -10,9 +10,29 @@
     "type": "git",
     "url": "https://github.com/ajcrites/spongemock.git"
   },
+  "scripts": {
+    "prepublish": "babel -d lib src"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": 5
+          }
+        }
+      ]
+    ]
+  },
   "dependencies": {
     "commander": "^2.9.0",
     "lodash.isstring": "^4.0.1",
     "lodash.random": "^3.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-preset-env": "^1.5.2"
   }
 }

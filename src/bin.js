@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-const program = require("commander");
-const spongeMock = require("./").spongeMock;
-const version = require("../package.json").version;
-const fs = require("fs");
+import program from "commander"
+import { spongeMock } from "./";
+import { version } from "../package.json";
+import { readFileSync } from  "fs";
 
 program
     .version(version)
@@ -28,7 +28,7 @@ else {
             process.stdout.write(spongeMock(str));
         }
         else {
-            process.stdout.write(spongeMock(fs.readFileSync(str, "utf8")));
+            process.stdout.write(spongeMock(readFileSync(str, "utf8")));
         }
     });
 

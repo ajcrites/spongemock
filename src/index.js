@@ -1,11 +1,11 @@
-const isString = require("lodash.isstring");
-const random = require("lodash.random");
+import isString from "lodash.isstring";
+import random from "lodash.random";
 
 const isLetterRegExp = new RegExp("^[a-zA-Z]$");
-const upper = Symbol("upper");
-const lower = Symbol("lower");
+export const upper = Symbol("upper");
+export const lower = Symbol("lower");
 
-exports.spongeMock = str => {
+export const spongeMock = str => {
     if (!isString(str)) {
         return str;
     }
@@ -27,8 +27,7 @@ exports.spongeMock = str => {
     return emit;
 }
 
-
-function decideCase(curr, prev, prev2) {
+export function decideCase(curr, prev, prev2) {
     const odds = random(0, 99);
 
     const currCase = getCase(curr);
@@ -68,19 +67,12 @@ function decideCase(curr, prev, prev2) {
     return curr;
 }
 
-function isLetter(char) {
+export function isLetter(char) {
     return isLetterRegExp.test(char);
 }
 
-function getCase(char) {
+export function getCase(char) {
     return char === char.toUpperCase() ? upper : lower;
 }
 
-exports.decideCase = decideCase;
-exports.isLetter = isLetter;
-exports.getCase = getCase;
-
-exports.upper = upper;
-exports.lower = lower;
-
-exports.sPoNgEmOCk = exports.spongeMock;
+export const sPoNgEmOCk = spongeMock;
