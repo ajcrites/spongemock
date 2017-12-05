@@ -1,8 +1,9 @@
 {
   "name": "spongemock",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "sPonGeBoB MoCKiNg mEmE TeXt TRansFoRmEr",
-  "main": "lib/index.js",
+  "main": "lib",
+  "types": "lib",
   "bin": "lib/bin.js",
   "author": "Andrew Crites <ajcrites@gmail.com>",
   "license": "MIT",
@@ -11,7 +12,7 @@
     "url": "https://github.com/ajcrites/spongemock.git"
   },
   "scripts": {
-    "prepublish": "babel -d lib src"
+    "prepublish": "babel -d lib src && cp src/index.d.ts lib/index.d.ts"
   },
   "babel": {
     "presets": [
