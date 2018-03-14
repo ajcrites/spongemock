@@ -13,13 +13,37 @@ export const spongeMock = str => {
     let emit = "";
     let prevLetter;
     let prev2Letter;
+    let ansiCheck = false;
+    let isAnsi = false;
     for (let ctr = 0; ctr < str.length; ctr++) {
         if (isLetter(str[ctr])) {
             prev2Letter = prevLetter;
-            prevLetter = decideCase(str[ctr], prevLetter, prev2Letter);
+            // Do not capitalize the 'm' in ANSI escape sequences
+            if (isAnsi && 'm' === str[ctr]) {
+                prevLetter = str[ctr];
+                isAnsi = false;
+                ansiCheck = false;
+            }
+            else {
+                prevLetter = decideCase(str[ctr], prevLetter, prev2Letter);
+            }
             emit += prevLetter;
         }
         else {
+            if (ansiCheck) {
+                if (/\d/.test(str[ctr])) {
+                    isAnsi = true;
+                }
+                else {
+                    ansiCheck = false;
+                }
+            }
+            // This may be part of an ANSI escape sequence. Check that all
+            // following characters are numbers
+            if ('[' === str[ctr]) {
+                ansiCheck = true;
+            }
+
             emit += str[ctr];
         }
     }
